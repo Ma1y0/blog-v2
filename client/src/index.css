@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: poppins;
+    @apply text-white;
+    @apply  bg-gradient-to-b from-[#2e026d] to-[#15162c];
+}
+
+h1 {
+    @apply font-semibold text-7xl
+}
+
+:root {
+    color-scheme: dark;
+}
+
+/* .bg-post {
+    background-color: #3b3b3b;
+}
+*/
+
+.markdown-preview h1 {
+    @apply text-4xl;
+}
+
+.markdown-preview h2 {
+    @apply text-3xl;
+}
+
+.markdown-preview h3 {
+    @apply text-2xl;
+}

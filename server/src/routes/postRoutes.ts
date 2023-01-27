@@ -6,9 +6,18 @@ const router = Router()
 // Get all Posts
 router.get("/", async (req, res) => {
     const posts = await prisma.post.findMany()
-    res.json({
-        posts
+    res.json(posts)
+})
+
+// Get Post by Id
+router.get("/:id", async (req, res) => {
+    const { id } = req.params
+    const post = await prisma.post.findFirst({
+        where: {
+            id: id
+        }
     })
+    res.json(post)
 })
 
 // Create new Post

@@ -24,7 +24,7 @@ h1 {
 */
 
 .markdown-preview h1 {
-    @apply text-4xl;
+    @apply text-5xl font-normal;
 }
 
 .markdown-preview h2 {

@@ -7,6 +7,7 @@ const HomePage = () => {
     const getFeed = () => {
         fetch("http://localhost:8080/post")
             .then(res => res.json())
+            .then(data => data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)))
             .then(data => setFeed(data))
             .catch(error => console.error(error))
     }
@@ -17,7 +18,6 @@ const HomePage = () => {
 
     return (
         <main class="min-h-screen m-3">
-            <h1 class="mb-6">BLOG</h1>
             <div class="flex flex-col gap-3 flex-wrap m-3">
                 {feed ? feed.map((post: any) => (
                     <a href={`/posts/${post.id}`}>

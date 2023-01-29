@@ -27,7 +27,7 @@ const NewPost = () => {
             body: JSON.stringify({
                 title: formData.title,
                 content: formData.markdown,
-                authorId: "clda4dfzv0000163mtz599egu"
+                authorId: "cldhazey70000164530w9tw0n"
             })
         })  
             .catch(err => console.error(err))

@@ -20,12 +20,14 @@ const NewPost = () => {
     const onSubmit = async (e: Event) => {
         e.preventDefault()
 
-        await fetch("localhost:8080/post", {
+        await fetch("http://localhost:8080/post", {
             method: "POST",
+            mode: "cors",
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 title: formData.title,
                 content: formData.markdown,
-                authorId: formData.authorId
+                authorId: "clda4dfzv0000163mtz599egu"
             })
         })  
             .catch(err => console.error(err))

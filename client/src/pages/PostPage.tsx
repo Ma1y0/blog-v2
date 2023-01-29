@@ -21,7 +21,7 @@ const PostPage = ({ id, ...props }) => {
             <div>
                 <h1 class="p-6 pb-0">{post.title}</h1>
                 <small class="pl-6">By {post.authorName}</small>
-                <ReactMarkdown class="p-6" children={post.content}/>
+                <ReactMarkdown className="p-6" children={post.content}/>
             </div>
             : null 
             }

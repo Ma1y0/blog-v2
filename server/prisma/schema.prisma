@@ -12,6 +12,7 @@ model User {
   name String @unique
   admin Boolean @default(false)
   email String @unique
+  password String
   posts Post[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

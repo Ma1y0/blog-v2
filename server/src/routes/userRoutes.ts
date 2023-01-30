@@ -34,8 +34,6 @@ router.post("/login", async (req, res)  => {
             message: "Incorect Password"
         })
     }
-    
-    res.json("Log In")
 })
 
 // Sing Up

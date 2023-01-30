@@ -1,14 +1,12 @@
-import { useState } from 'preact/hooks'
-import Router from "preact-router"
 import './app.css'
+import Router from "preact-router"
 import HomePage from './pages/HomePage'
 import PostPage from './pages/PostPage'
 import NewPost from './pages/NewPost'
 import NavBar from './components/NavBar'
+import LogIn from "./pages/Login"
 
 export function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <header>
@@ -16,6 +14,7 @@ export function App() {
       </header>
       <Router>
         <HomePage path="/" />
+        <LogIn path="/login" />
         <PostPage path="/posts/:id" />
         <NewPost path="/posts/new" />
       </Router>

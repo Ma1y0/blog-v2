@@ -7,10 +7,10 @@ import { generateToken } from "../lib/jwt"
 
 const router = express.Router()
 const secret = process.env.token_secret
-const authenticateJWt = expressjwt({ secret, algorithms: ['HS256'] })
+const authenticateJWT = expressjwt({ secret, algorithms: ['HS256'] })
 
 // Test route
-router.get("/protected", authenticateJWt, (req, res) => {
+router.get("/protected", authenticateJWT, (req, res) => {
     res.json("hello")
 })
 
@@ -23,12 +23,11 @@ router.post("/login", async (req, res)  => {
             email: email
         }
     })
-
     const passwordMatch = await bcrypt.compare(password, user.password)
 
     if (passwordMatch) {
         const accessToken = generateToken({ userId: user.id})
-        res.json({ accessToken })
+        res.json({ accessToken, user })
     } else {
         res.status(401).json({
             message: "Incorect Password"

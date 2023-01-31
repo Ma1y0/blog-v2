@@ -7,6 +7,7 @@ import NavBar from './components/NavBar'
 import LogIn from "./pages/Login"
 
 export function App() {
+
   return (
     <>
       <header>

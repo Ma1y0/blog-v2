@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks"
+import { route } from 'preact-router';
 
 const LogIn = () => {
     const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const LogIn = () => {
     const onSubmit = async (e: Event) => {
         e.preventDefault()
 
-        await fetch("http://localhost:8080/user/login", {
+        const response =  await fetch("http://localhost:8080/user/login", {
             method: "POST",
             mode: "cors",
             headers: { "Content-Type": "application/json" },
@@ -26,15 +27,17 @@ const LogIn = () => {
                 password: formData.password[0]
             })
         })
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .then(data => {
-                // const expires = new Date()
-                // expires.setTime(expires.getTime() + (30 * 24 * 60 * 60 * 1000)) // expires in 30 days
-                // document.cookie = `jwt=${data.accessToken};expires=${expires.toUTCString()};path=/;`
-                console.log(data)
-            })
             .catch(err => console.error(err))
+
+        const data = await response.json()
+        if (data !== undefined) {
+            const accessToken = data.accessToken
+            const expiration = new Date()
+            expiration.setDate(expiration.getDate() + 30)
+            document.cookie = `jwt=${accessToken}; expires=${expiration.toUTCString()}; path=/;`
+        }
+
+        route("/")
 
     }
 

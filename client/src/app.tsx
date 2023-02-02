@@ -1,15 +1,22 @@
 import './app.css'
-import Router from "preact-router"
+import Router from 'preact-router'
 import HomePage from './pages/HomePage'
 import PostPage from './pages/PostPage'
 import NewPost from './pages/NewPost'
 import NavBar from './components/NavBar'
 import LogIn from "./pages/Login"
+import UserContext from './lib/userContext'
+import { useState } from 'preact/hooks'
 
 export function App() {
+  const [user, setUser] = useState({})
+
+  const setUserContext = (user: any) => {
+    setUser(user)
+  }
 
   return (
-    <>
+    <UserContext.Provider value={{user, setUserContext}}>
       <header>
         <NavBar/>
       </header>
@@ -19,6 +26,6 @@ export function App() {
         <PostPage path="/posts/:id" />
         <NewPost path="/posts/new" />
       </Router>
-    </>
+    </UserContext.Provider>
   )
 }

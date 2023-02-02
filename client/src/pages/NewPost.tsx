@@ -1,13 +1,16 @@
 import { route } from "preact-router"
-import { useState } from "preact/hooks"
+import { useContext, useState } from "preact/hooks"
 import { ReactMarkdown } from "react-markdown/lib/react-markdown"
+import UserContext from "../lib/userContext"
 
 const NewPost = () => {
+    const { setUserContext, user } = useContext(UserContext)
+
     const [formData, setFormData] = useState({
         title: "",
-        markdown: "",
-        authorId: "clda4dfzv0000163mtz599egu"
+        markdown: ""
     })
+
 
     const onInput = (e: Event) => {
         const target = e.target as HTMLInputElement
@@ -27,7 +30,7 @@ const NewPost = () => {
             body: JSON.stringify({
                 title: formData.title,
                 content: formData.markdown,
-                authorId: "cldizvhcq00001626pv1izq4d"
+                authorId: user.id
             })
         })  
             .catch(err => console.error(err))

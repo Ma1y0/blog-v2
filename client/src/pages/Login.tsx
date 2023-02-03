@@ -50,7 +50,7 @@ const LogIn = () => {
     return (
         <main class="min-h-screen p-6">
             <form class="flex flex-col items-center" onSubmit={onSubmit}>
-                <input value={formData.email} onInput={onInput} name="email" placeholder="e-mail" type="text" class="rounded-lg p-2 w-[20%]" required />
+                <input value={formData.email} onInput={onInput} name="email" placeholder="e-mail" type="email" class="rounded-lg p-2 w-[20%]" required />
                 <input value={formData.password} onInput={onInput} name="password" placeholder="password" type="password" class="rounded-lg p-2 mt-1 w-[20%]" required />
                 <button type="submit" class="mt-3">Log In</button>
             </form>

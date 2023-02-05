@@ -1,0 +1,14 @@
+{
+    "plugins": [
+      "prettier-plugin-tailwind"
+    ],
+    "overrides": [
+      {
+        "files": "*.css",
+        "options": {
+          "parser": "postcss"
+        }
+      }
+    ],
+    "editor.formatOnSave": true
+}

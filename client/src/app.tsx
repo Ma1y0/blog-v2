@@ -23,8 +23,6 @@ export function App() {
         <NavBar/>
       </header>
       <Router>
-        {/* Remove This */}
-        <DevTools path="/devTools" />
         <HomePage path="/" />
         <LogIn path="/login" />
         <Register path="/register" /> 

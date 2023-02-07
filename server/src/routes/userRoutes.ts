@@ -6,7 +6,7 @@ import { hasher } from "../lib/hasher"
 import { generateToken } from "../lib/jwt"
 
 const router = express.Router()
-const secret = process.env.token_secret
+const secret = process.env.TOKEN_SECRET
 const authenticateJWT = expressjwt({ secret, algorithms: ['HS256'] })
 
 // Test route

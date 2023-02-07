@@ -26,7 +26,7 @@ router.post("/login", async (req, res)  => {
     const passwordMatch = await bcrypt.compare(password, user.password)
 
     if (passwordMatch) {
-        const accessToken = generateToken({ userId: user.id})
+        const accessToken = generateToken({ userId: user.id })
         res.json({ accessToken, user })
     } else {
         res.status(401).json({
@@ -49,9 +49,11 @@ router.post("/register", async (req, res) => {
             }
         })
 
-        
+        const accessToken = generateToken({ userId: user.id })
+
         res.json({
-            newUser: user
+            user: user,
+            accessToken
         })
     } catch (err) {
         res.status(401).json(err)

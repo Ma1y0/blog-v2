@@ -39,9 +39,7 @@ const LogIn = () => {
             expiration.setDate(expiration.getDate() + 30)
             document.cookie = `jwt=${accessToken}; expires=${expiration.toUTCString()}; path=/;`
             setUserContext(data.user)
-        }
-
-            
+        }   
 
         route("/")
 

@@ -25,6 +25,7 @@ model Post {
   tags String?
   description String?
   content String
+  likes Int @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   author User @relation(fields: [authorName], references: [name], onDelete: Cascade)

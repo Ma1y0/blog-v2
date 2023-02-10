@@ -1,5 +1,6 @@
 import { useContext, useState } from 'preact/hooks'
 import UserContext from '../lib/userContext'
+import { route } from 'preact-router'
 
 const Register = () => {
     const { setUserContext, user } = useContext(UserContext)
@@ -41,6 +42,8 @@ const Register = () => {
             document.cookie = `jwt=${accessToken}; expires=${expiration.toUTCString()}; path=/;`
             setUserContext(data.user)
         }
+
+        route("/")
     }
 
     return (
